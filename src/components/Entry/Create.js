@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { createEntry } from '../../api/entry'
-// import Button from 'react-bootstrap/Button'
-// import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 class CreateEntry extends Component {
   constructor (props) {
@@ -54,26 +54,35 @@ handleSubmit = (event) => {
 }
 render () {
   if (this.state.createdId) {
-    return <Redirect to='/home/'/>
+    return <Redirect to='/#/'/>
   }
   return (
     <React.Fragment>
-      <h2>Thinking thoughts? Whats on your mind?</h2>
-      <form onSubmit={this.handleSubmit}>
-        <input
-          placeholder="Subject"
-          value={this.state.entry.subject}
-          onChange={this.handleChange}
-          name="subject"
-        />
-        <input
-          placeholder="Go ahead, jot them down"
-          value={this.state.entry.text}
-          onChange={this.handleChange}
-          name="text"
-        />
-        <button type="submit"></button>
-      </form>
+      <h2 className="entryHeader">Thinking thoughts?</h2>
+      <br/>
+      <div className='capsuleEntry'>
+        <Form onSubmit={this.handleSubmit}>
+          <input
+            className="form-control"
+            placeholder="Subject"
+            value={this.state.entry.subject}
+            onChange={this.handleChange}
+            name="subject"
+          />
+          <br/>
+
+          <textarea
+            className="form-control"
+            placeholder="What's on your mind?"
+            value={this.state.entry.text}
+            onChange={this.handleChange}
+            name="text"
+          />
+          <br/>
+
+          <Button style={{ background: '#6B7B93', border: '#6B7B93' }}type="submit">Publish</Button>
+        </Form>
+      </div>
     </React.Fragment>
   )
 }
