@@ -54,7 +54,7 @@ handleSubmit = (event) => {
 }
 render () {
   if (this.state.createdId) {
-    return <Redirect to='/#/'/>
+    return <Redirect to='/#/view-all/'/>
   }
   return (
     <React.Fragment>
