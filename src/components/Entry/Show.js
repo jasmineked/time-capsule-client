@@ -161,7 +161,7 @@ const ShowEntry = (props) => {
       })
       .then(() => {
         msgAlert({
-          heading: 'Show Proentry Success',
+          heading: 'Show entry Success',
           message: 'See the entry there!',
           variant: 'success'
         })
