@@ -11,7 +11,7 @@ import SignOut from './components/Auth/SignOut'
 import ChangePassword from './components/Auth/ChangePassword'
 import CreateEntry from './components/Entry/Create'
 import IndexEntry from './components/Entry/Index'
-// import UpdateEntry from './components/Entry/Update'
+import UpdateEntry from './components/Entry/Update'
 import ShowEntry from './components/Entry/Show'
 
 class App extends Component {
@@ -77,6 +77,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/entries/:id' render={() => (
             <ShowEntry msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/update-entry/:id' render={() => (
+            <UpdateEntry msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
