@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 import { indexEntry } from '../../api/entry'
+// import moment from 'moment'
 
 class IndexEntry extends Component {
   constructor () {
@@ -38,7 +39,7 @@ class IndexEntry extends Component {
   render () {
     if (!this.state.entryArray) {
       return (
-        'nothign jhere to seee right msg: ' + this.state.entry
+        'Nothing to see here!: ' + this.state.entry
       )
     } else if (this.state.entryArray.length === 0) {
       return (
@@ -49,10 +50,9 @@ class IndexEntry extends Component {
         <div>
           {this.state.entryArray.map(entry => (
             <Fragment key={entry._id}>
-              <h4>{entry.subject}</h4>
-              <h6>{entry.text}</h6>
-              <p>{entry.timestamps}</p>
-              <Link to={`/entries/${entry._id}`}>See more</Link>
+              <Link to={`/entries/${entry._id}`}>
+                <h4>{entry.subject}</h4>
+              </Link>
             </Fragment>
           ))}
         </div>
